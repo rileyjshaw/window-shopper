@@ -1,0 +1,12 @@
+html {
+  padding: 0 1em;
+  transition: opacity 0.3s;
+}
+
+html.fade {
+  opacity: 0;
+}
+
+p {
+  white-space: nowrap;
+}
