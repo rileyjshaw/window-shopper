@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "Window Shopper: List all non-default globals",
+    "message": "Window Shopper: log any page's globals",
     "description": "The name of the application"
   },
   "appDescription": {
-    "message": "Count and list all page-defined global variables",
+    "message": "Count & list all page-defined global variables",
     "description": "The description of the application"
   }
 }
