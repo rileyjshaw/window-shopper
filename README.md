@@ -6,5 +6,9 @@ A Chrome extension: count and list all page-defined global variables. Check it o
 ## Usage
 The extension's icon badge shows how many globals are defined on a page. Click the icon to log a list of all page-defined global variables to the console.
 
-## License
+## Licenses
+### Logo
+Created by Arthur Shlain from the Noun Project, Creative Commons – Attribution (CC BY 3.0)
+
+### Everything else
 [MIT](LICENSE), obvi
