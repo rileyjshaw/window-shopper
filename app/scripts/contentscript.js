@@ -51,6 +51,7 @@
   });
 
   chrome.runtime.onMessage.addListener(function (e) {
+    if (e.type !== 'userClick') {return;}
     var auditGlobalsRequest = new CustomEvent('auditGlobalsRequest', {
       detail: {
         logging: e.logging

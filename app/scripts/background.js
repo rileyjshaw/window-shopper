@@ -13,6 +13,7 @@
 
       if (currentTab) {
         chrome.tabs.sendMessage(currentTab, {
+          type: 'userClick',
           logging: logging
         });
       }
