@@ -11,23 +11,24 @@
         return !defaultGlobals[key];
       });
 
-      var auditGlobalsResponse = document.createEvent('CustomEvent');
-      auditGlobalsResponse.initCustomEvent('auditGlobalsResponse', true, true, {
-        added: addedGlobals,
-        logging: logging
+      var auditGlobalsResponse = new CustomEvent('auditGlobalsResponse', {
+        detail: {
+          added: addedGlobals,
+          logging: logging
+        }
       });
-
       document.dispatchEvent(auditGlobalsResponse);
     }
 
     var defaultGlobals = getGlobals().reduce(function (globals, key) {
       globals[key] = true;
+      return globals;
     }, {});
 
     window.addEventListener('load', function () {
       sendAddedGlobals(false);
 
-      window.addEventListener('auditGlobalsRequest', function () {
+      document.addEventListener('auditGlobalsRequest', function () {
         sendAddedGlobals(true);
       });
     });
@@ -49,10 +50,12 @@
     }
   });
 
-
-  chrome.runtime.onMessage.addListener(function () {
-    var auditGlobalsRequest = document.createEvent('CustomEvent');
-    auditGlobalsRequest.initCustomEvent('auditGlobalsRequest', true, true, {});
+  chrome.runtime.onMessage.addListener(function (e) {
+    var auditGlobalsRequest = new CustomEvent('auditGlobalsRequest', {
+      detail: {
+        logging: e.logging
+      }
+    });
     document.dispatchEvent(auditGlobalsRequest);
   });
 })();
