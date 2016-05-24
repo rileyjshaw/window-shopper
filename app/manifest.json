@@ -1,7 +1,7 @@
 {
   "name": "__MSG_appName__",
   "short_name": "List globals",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "manifest_version": 2,
   "description": "__MSG_appDescription__",
   "icons": {
@@ -11,7 +11,6 @@
   "default_locale": "en",
   "background": {
     "scripts": [
-      "scripts/chromereload.js",
       "scripts/background.js"
     ]
   },

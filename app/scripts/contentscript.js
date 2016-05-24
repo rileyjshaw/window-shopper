@@ -20,10 +20,9 @@
       document.dispatchEvent(auditGlobalsResponse);
     }
 
-    var defaultGlobals = {};
-    getGlobals().forEach(function (key) {
-      defaultGlobals[key] = true;
-    });
+    var defaultGlobals = getGlobals().reduce(function (globals, key) {
+      globals[key] = true;
+    }, {});
 
     window.addEventListener('load', function () {
       sendAddedGlobals(false);
@@ -35,7 +34,7 @@
   }
 
   var script = document.createElement('script');
-  var parent = (document.head || document.documentElement);
+  var parent = document.head || document.documentElement;
 
   script.textContent = '(' + auditGlobalsInjected + ')();';
   parent.insertBefore(script, parent.firstChild);
