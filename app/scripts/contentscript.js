@@ -52,7 +52,7 @@
 
   chrome.runtime.onMessage.addListener(function () {
     var auditGlobalsRequest = document.createEvent('CustomEvent');
-    auditGlobalsRequest.initCustomEvent('auditGlobalsRequest', true, true);
+    auditGlobalsRequest.initCustomEvent('auditGlobalsRequest', true, true, {});
     document.dispatchEvent(auditGlobalsRequest);
   });
 })();
