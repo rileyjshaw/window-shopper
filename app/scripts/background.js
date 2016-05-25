@@ -13,7 +13,7 @@
 
       if (currentTab) {
         chrome.tabs.sendMessage(currentTab, {
-          type: 'userClick',
+          type: 'com.rileyjshaw.windowshopper__USER_CLICK',
           logging: logging
         });
       }

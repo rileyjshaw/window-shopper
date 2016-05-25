@@ -28,8 +28,8 @@
     window.addEventListener('load', function () {
       sendAddedGlobals(false);
 
-      document.addEventListener('auditGlobalsRequest', function () {
-        sendAddedGlobals(true);
+      document.addEventListener('auditGlobalsRequest', function (e) {
+        sendAddedGlobals(e.detail.logging);
       });
     });
   }
@@ -51,7 +51,7 @@
   });
 
   chrome.runtime.onMessage.addListener(function (e) {
-    if (e.type !== 'userClick') {return;}
+    if (e.type !== 'com.rileyjshaw.windowshopper__USER_CLICK') {return;}
     var auditGlobalsRequest = new CustomEvent('auditGlobalsRequest', {
       detail: {
         logging: e.logging
